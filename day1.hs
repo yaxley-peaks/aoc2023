@@ -28,23 +28,23 @@ main = do
 
 
 process :: String -> Int
-process s = let maybes = map matchDigit $ tails s
+process s = let maybes = map doThing $ tails s
                 digits = catMaybes maybes
                 first = head digits
                 lst = last digits
              in 10 * first + lst
 
-matchDigit :: String -> Maybe Int
-matchDigit ('z':'e':'r':'o':_) = return 0
-matchDigit ('o':'n':'e':_) = return 1
-matchDigit ('t':'w':'o':_) = return 2
-matchDigit ('t':'h':'r':'e':'e':_) = return 3
-matchDigit ('f':'o':'u':'r':_) = return 4
-matchDigit ('f':'i':'v':'e':_) = return 5
-matchDigit ('s':'i':'x':_) = return 6
-matchDigit ('s':'e':'v':'e':'n':_) = return 7
-matchDigit ('e':'i':'g':'h':'t':_) = return 8
-matchDigit ('n':'i':'n':'e':_) = return 9
-matchDigit (x:_) | isDigit x = return (read [x])
+doThing :: String -> Maybe Int
+doThing ('z':'e':'r':'o':_) = return 0
+doThing ('o':'n':'e':_) = return 1
+doThing ('t':'w':'o':_) = return 2
+doThing ('t':'h':'r':'e':'e':_) = return 3
+doThing ('f':'o':'u':'r':_) = return 4
+doThing ('f':'i':'v':'e':_) = return 5
+doThing ('s':'i':'x':_) = return 6
+doThing ('s':'e':'v':'e':'n':_) = return 7
+doThing ('e':'i':'g':'h':'t':_) = return 8
+doThing ('n':'i':'n':'e':_) = return 9
+doThing (x:_) | isDigit x = return (read [x])
                  | otherwise = Nothing
-matchDigit [] = Nothing
+doThing [] = Nothing

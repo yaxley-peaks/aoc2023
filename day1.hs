@@ -1,7 +1,6 @@
 import Data.Char (isDigit)
 import Data.Maybe
 import Data.List
--- Day 1
 
 part1 :: String -> Int
 part1 ss =
@@ -17,8 +16,6 @@ part2 fp =
     let x = map process (lines fp)
     in sum x
 
--- part2 :: String -> Int
--- part2 ss =
 
 main :: IO ()
 main = do
